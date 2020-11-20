@@ -1,18 +1,19 @@
-const express = require('express')
-const app = express()
+const express = require('express');
 
-//TODO
+const app = express();
+
+// TODO
 // Add middleware (bodyparser)
-// Connect to mongo
+// Connect to mongoose
 // Import models module
 // Import controllers module
 
+// TEST Change
+
 app.get('/', (req, res) => {
-  res.send('Hello world')
-})
-
-
+  res.send('Hello world');
+});
 
 // Start on specific port
-const PORT = 3001
-app.listen(PORT, () => console.log(`There will be dragons on port ${PORT}`))
+const PORT = 3001;
+app.listen(PORT, () => console.log(`There will be dragons on port ${PORT}`));
