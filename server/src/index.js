@@ -7,5 +7,12 @@ const app = express()
 // Import models module
 // Import controllers module
 
+app.get('/', (req, res) => {
+  res.send('Hello world')
+})
+
+
+
 // Start on specific port
-app.listen(() => console.log('There will be dragons'))
+const PORT = 3001
+app.listen(PORT, () => console.log(`There will be dragons on port ${PORT}`))
