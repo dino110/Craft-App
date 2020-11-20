@@ -1,0 +1,26 @@
+{
+  "name": "craft-app",
+  "version": "1.0.0",
+  "description": "1. Backed framework - Node/Express 2. Databse - MongoBD 3. Testing    - Unit - Jest 4. Frontend framework - Vue Nuxt 5. Infrastructure    - Docker",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon ./src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dino110/Craft-App.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dino110/Craft-App/issues"
+  },
+  "homepage": "https://github.com/dino110/Craft-App#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
+}
