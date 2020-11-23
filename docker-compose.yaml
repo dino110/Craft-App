@@ -1,0 +1,12 @@
+version: "3"
+services:
+  api:
+    image: thinktwice13/craft
+    build: ./server
+    container_name: craft-api
+    restart: unless-stopped
+    ports:
+      - "3001:3001"
+    volumes:
+      - /app/node_modules
+      - ./server:/app
