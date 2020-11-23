@@ -20,7 +20,8 @@
   },
   "homepage": "https://github.com/dino110/Craft-App#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "mongoose": "^5.10.15"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
