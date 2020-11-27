@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/dino110/Craft-App#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "express": "^4.17.1",
     "mongoose": "^5.10.15"
   },
