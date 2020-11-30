@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon ./src/index.js",
+    "dev": "env-cmd -f ./config/dev.env nodemon src/index.js",
     "start": "node src/index.js",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
@@ -21,11 +21,15 @@
   },
   "homepage": "https://github.com/dino110/Craft-App#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "express": "^4.17.1",
-    "mongoose": "^5.10.15"
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.10.15",
+    "validator": "^13.1.17"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
+    "env-cmd": "^10.1.0",
     "eslint": "^7.13.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-prettier": "^6.15.0",

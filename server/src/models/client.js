@@ -6,7 +6,7 @@ const clientSchema = new mongoose.Schema({
     required: true,
     trim: true,
   },
-  adress: {
+  address: {
     street: {
       type: String,
       required: false,
@@ -29,29 +29,36 @@ const clientSchema = new mongoose.Schema({
   oib: {
     type: Number,
     required: true,
-  },
-  email: {
-    type: String,
-    trim: true,
-    lowercase: true,
     unique: true,
   },
-  contactPerson: {
-    type: String,
-    trim: true,
+  contact: {
+    email: {
+      type: String,
+      trim: true,
+      lowercase: true,
+      unique: true,
+    },
+    contactPerson: {
+      type: String,
+      trim: true,
+    },
+    telephone: {
+      type: String,
+    },
   },
   local: {
-    type: Boolean,
-    required: true,
+    pdv_o: {
+      type: Boolean,
+      required: true,
+    },
+    pdv_number: {
+      type: Number,
+    },
   },
   idType: {
     type: String,
     required: true,
-  },
-  id: {
-    type: String,
-    required: true,
-  },
+  }
 });
 
 const Client = mongoose.model("Client", clientSchema);
