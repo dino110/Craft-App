@@ -1,13 +1,11 @@
-/* eslint-disable prettier/prettier */
 const express = require("express");
 const Client = require("../models/client");
 const router = new express.Router();
+const auth = require("../middleware/auth");
 
 //*create new client
 router.post("/api/clients", async (req, res) => {
-  const client = new Client({
-    ...req.body,
-  });
+  const client = new Client(req.body);
 
   try {
     await client.save();
@@ -15,12 +13,10 @@ router.post("/api/clients", async (req, res) => {
   } catch (e) {
     res.status(400).send(e);
   }
-
-  console.log(req.body);
 });
 
 //*get all clients
-router.get("/api/clients", async (req, res) => {
+router.get("/api/clients", auth, async (req, res) => {
   try {
     const clients = await Client.find({});
     if (!clients) {
@@ -33,7 +29,7 @@ router.get("/api/clients", async (req, res) => {
 });
 
 //*get client by oib
-router.get("/api/clients/:oib", async (req, res) => {
+router.get("/api/clients/:oib", auth, async (req, res) => {
   try {
     const client = await Client.findOne({ oib: req.params.oib });
     if (!client) {
@@ -46,7 +42,7 @@ router.get("/api/clients/:oib", async (req, res) => {
 });
 
 //*update client
-router.patch("/api/clients/:oib", async (req, res) => {
+router.patch("/api/clients/:oib", auth, async (req, res) => {
   const updates = Object.keys(req.body);
   /*   const allowedUpdates = ["contact", "address", "name", "idType"]
   const isValidOperation = updates.every((update) => allowedUpdates.includes(update))
@@ -73,7 +69,7 @@ router.patch("/api/clients/:oib", async (req, res) => {
 });
 
 //*delete client
-router.delete("/api/clients/:oib", async (req, res) => {
+router.delete("/api/clients/:oib", auth, async (req, res) => {
   try {
     const client = await Client.findOneAndDelete({ oib: req.params.oib });
 

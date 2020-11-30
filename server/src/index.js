@@ -1,16 +1,14 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const clientRouter = require("./routers/clients");
+const userRouter = require("./routers/users");
 
 mongoose
-  .connect(
-    "mongodb+srv://dino110:Dinamo1986@craftappcluster.4qnks.mongodb.net/Craft-app",
-    {
-      useNewUrlParser: true,
-      useCreateIndex: true,
-      useFindAndModify: false,
-    }
-  )
+  .connect(process.env.MONGODB_URL, {
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useFindAndModify: false,
+  })
   .then(() => {
     console.log("Connected to DB..");
   })
@@ -26,6 +24,7 @@ const app = express();
 
 app.use(express.json());
 app.use(clientRouter);
+app.use(userRouter);
 
 app.get("/", (req, res) => {
   res.send("Hello world");
