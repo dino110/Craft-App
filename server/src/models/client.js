@@ -58,7 +58,7 @@ const clientSchema = new mongoose.Schema({
   idType: {
     type: String,
     required: true,
-  },
+  }
 });
 
 const Client = mongoose.model("Client", clientSchema);
